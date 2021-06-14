@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 const { User, Basket } = require('../models/models')
 
 const generateJwt = (id, email, role) => {
-  return jwt.sign({ id, email, role}, process.env.SECRET_KEY, { expiresIn: '24' })
+  return jwt.sign({ id, email, role}, process.env.TOKEN_SECRET_KEY, { expiresIn: '24h' })
 }
 
 class UserController {
@@ -26,16 +26,26 @@ class UserController {
     return res.json({ token })
   }
 
-  async login(req, res) {
+  async login(req, res, next) {
+    const {email, password} = req.body
+    const user = await User.findOne({where: {email}})
 
+    if (!user) {
+      return next(ApiError.badRequest('The user with this login was not found.'))
+    }
+
+    let comparePassword = bcrypt.compareSync(password, user.password)
+    if (!comparePassword) {
+      return next(ApiError.badRequest('The password is not correct'))
+    }
+
+    const token = generateJwt(user.id, user.email, user.role)
+    return res.json({ token })
   }
 
-  async check(req, res, next) {
-    const { id } = req.query
-    if (!id) {
-      return next(ApiError.badRequest("There is not id-param. Id is required!"))
-    }
-    res.json(id)
+  async auth(req, res) {
+    const token = generateJwt(req.user.id, req.user.email, req.user.role)
+    return res.json({ token })
   }
 }
 

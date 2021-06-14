@@ -1,7 +1,7 @@
-require('dotenv').config()
+require('./env/env.builder').buildDotenvResultFile();
+require('dotenv').config();
 const express = require('express')
 const sequelize = require('./db')
-const models = require('./models/models')
 const PORT = process.env.PORT || 5000
 const cors = require('cors')
 const fileUpload = require('express-fileupload')

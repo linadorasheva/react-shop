@@ -1,6 +1,12 @@
 {
-  "extends": "airbnb",
-  "plugins": ["react"],
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "airbnb"
+  ],
+  "plugins": [
+    "react"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -8,5 +14,24 @@
     "parserOptions": {
       "ecmaVersion": 6
     }
-  }
+  },
+  "rules": {
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+          ".jsx",
+          ".js"
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.js",
+        "*.jsx"
+      ]
+    }
+  ]
 }

@@ -20,7 +20,7 @@ export const authRoutes = [
   {
     path: BASKET_ROUTE_PATH,
     Component: Basket,
-  }
+  },
 ];
 
 export const publicRoutes = [
@@ -40,4 +40,4 @@ export const publicRoutes = [
     path: `${DEVICE_ROUTE_PATH}/:id`,
     Component: DevicePage,
   },
-]
+];

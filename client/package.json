@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
+    "eslint-config-airbnb": "^18.2.1",
     "mobx": "^6.3.2",
     "mobx-react-lite": "^3.2.0",
     "node-sass": "^6.0.0",
@@ -22,13 +23,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "eject": "react-scripts eject",
+    "lint": "eslint --no-error-on-unmatched-pattern --ext .js,.jsx --ignore-path .gitignore .",
+    "format:eslint": "eslint --no-error-on-unmatched-pattern --fix --ext .jsx,.js --ignore-path .gitignore ."
   },
   "browserslist": {
     "production": [
@@ -43,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "eslint": "7.29.0",
     "eslint-plugin-react": "^7.24.0"
   }
 }

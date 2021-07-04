@@ -112,7 +112,7 @@ export default class ProductStore {
   }
 
   setProducts(value) {
-    this.devices = value;
+    this.products = value;
   }
 
   get getTypes() {
@@ -132,6 +132,6 @@ export default class ProductStore {
   }
 
   get getProducts() {
-    return this.devices;
+    return this.products;
   }
 }

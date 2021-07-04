@@ -4,16 +4,16 @@ import { ListGroup } from 'react-bootstrap';
 import Context from '../store/Context';
 
 const Filters = observer(() => {
-  const { deviceStore } = useContext(Context);
+  const { productStore } = useContext(Context);
   return (
     <div className="filters">
       <ListGroup variant="flush" className="filters__list">
-        { deviceStore.types.map((type) => (
+        { productStore.types.map((type) => (
           <ListGroup.Item
             className="filters__item"
-            active={deviceStore.getSelectedType.id === type.id}
+            active={productStore.getSelectedType.id === type.id}
             key={`filter-item-${type.id}`}
-            onClick={() => deviceStore.setSelectedType(type)}
+            onClick={() => productStore.setSelectedType(type)}
           >
             { type.name }
           </ListGroup.Item>

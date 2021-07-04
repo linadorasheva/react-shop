@@ -1,12 +1,12 @@
 import {
   ADMIN_ROUTE_PATH,
   BASKET_ROUTE_PATH,
-  DEVICE_ROUTE_PATH,
+  PRODUCT_ROUTE_PATH,
   LOGIN_ROUTE_PATH,
   REGISTRATION_ROUTE_PATH,
   SHOP_ROUTE_PATH,
 } from './utils/constants';
-import DevicePage from './pages/DevicePage';
+import DevicePage from './pages/ProductPage';
 import AdminPanel from './pages/AdminPanel';
 import Basket from './pages/Basket';
 import Shop from './pages/Shop';
@@ -37,7 +37,7 @@ export const publicRoutes = [
     Component: Auth,
   },
   {
-    path: `${DEVICE_ROUTE_PATH}/:id`,
+    path: `${PRODUCT_ROUTE_PATH}/:id`,
     Component: DevicePage,
   },
 ];
